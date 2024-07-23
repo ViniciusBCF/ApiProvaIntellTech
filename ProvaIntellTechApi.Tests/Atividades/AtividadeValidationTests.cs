@@ -50,6 +50,7 @@ namespace ProvaIntellTechApi.Tests.Atividades
             var validacaoAtividade = _validation.ExecutarValidacao(new AtividadeValidation(), atividade);
 
             validacaoAtividade.Should().BeFalse();
+            _notificador.TemNotificacao().Should().BeTrue();
             _notificador.ObtemNotificacao(mensagemEsperada).Should().BeTrue();
         }
 
