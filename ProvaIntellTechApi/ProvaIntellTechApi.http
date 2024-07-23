@@ -1,0 +1,6 @@
+@ProvaIntellTechApi_HostAddress = http://localhost:5101
+
+GET {{ProvaIntellTechApi_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
