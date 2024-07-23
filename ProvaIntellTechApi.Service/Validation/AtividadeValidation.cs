@@ -18,7 +18,11 @@ namespace ProvaIntellTechApi.Service.Validation
                 .NotEmpty()
                 .WithMessage(Constantes.CampoVazioErrorMsg(nameof(AtividadeViewModel.Descricao)))
                 .MaximumLength(Constantes.Numero512)
-                .WithMessage(Constantes.CampoMaiorErrorMsg(nameof(AtividadeViewModel.Descricao), Constantes.Numero512)); 
+                .WithMessage(Constantes.CampoMaiorErrorMsg(nameof(AtividadeViewModel.Descricao), Constantes.Numero512));
+
+            RuleFor(a => a.TipoAtividade)
+               .NotNull()
+               .WithMessage(Constantes.CampoVazioErrorMsg(nameof(AtividadeViewModel.TipoAtividade)));
         }
     }
 }
