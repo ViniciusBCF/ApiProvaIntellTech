@@ -64,32 +64,5 @@ namespace ProvaIntellTechApi.Controllers
 
             return GetIActionResult(await _atividadeService.RemoverAsync(id));
         }
-
-        private IActionResult GetIActionResult(Result result)
-        {
-            if (result == null)
-            {
-                return StatusCode((int)StatusCodeResultEnum.InternalServerError);
-            }
-            return StatusCode((int)result.StatusCode, result);
-        }
-
-        private IActionResult GetIActionResult<T>(Result<T> result)
-        {
-            if (result == null)
-            {
-                return StatusCode((int)StatusCodeResultEnum.InternalServerError);
-            }
-            if (result.StatusCode == StatusCodeResultEnum.NoContent)
-            {
-                return StatusCode((int)result.StatusCode);
-            }
-            if (!OperacaoValida())
-            {
-                return StatusCode((int)StatusCodeResultEnum.BadRequest, result);
-            }
-
-            return StatusCode((int)result.StatusCode, result);
-        }
     }
 }
